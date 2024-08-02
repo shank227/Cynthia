@@ -9,6 +9,7 @@ import speech_recognition as sr
 from PyQt5.QtWidgets import QApplication, QLabel
 from PyQt5.QtGui import QMovie
 from PyQt5.QtCore import Qt
+import webbrowser
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -42,7 +43,7 @@ def takeCommand():
         query = r.recognize_google(audio, language="en-us")
         print(f"You said: {query}\n")
     except Exception as e:
-        print("Say that again")
+        speak("Say that again")
         return "None"
     return query
 
@@ -80,7 +81,7 @@ if __name__ == "__main__":
 
                 # Conversations with Cynthia
                 elif "who are you" in query:
-                    speak("Hello! I'm Cynthia, an AI-powered virtual assistant created by Shashank Bakshi. My role is to assist you with a wide range of tasks limited to this computer, including answering questions, and providing information. I'm here to make your life easier by offering support whenever you need it. How can I help you today?")
+                    speak("Hello! I'm Cynthia version 1.0, an AI-powered virtual assistant created by Shashank Bakshi. My role is to assist you with a wide range of tasks limited to this computer, including answering questions, and providing information. I'm here to make your life easier by offering support whenever you need it. How can I help you today?")
                 elif "hello" in query:
                     speak("Hello, how are you ?")
                 elif "i am fine" in query:
@@ -95,6 +96,34 @@ if __name__ == "__main__":
                     speak("Absolutely! Beauty comes in so many forms, & its often about how you feel about yourself as mush as how other's see you")
                 elif 'are you beautiful' in query:
                     speak("I don't have a physical form, but I appreciate the sentiment! I'm here to help and support you in any way I can.")
+                elif 'when is your birthday' in query:
+                    speak("My frist version 1.0 was released on 31st of July 2024 on a private Github Repository")
+                elif 'when were you born' in query:
+                    speak("My frist version 1.0 was released on 31st of July 2024 on a private Github Repository")
+                elif 'who made you' in query:
+                    speak("I was made by Shashank Bakshi, a bored engineer and a cybersecrity enthusiast during his summer vacations thought of doing something crazy and then next day booom, I was born!!")
+                elif 'what made you' in query:
+                    speak("Well, a boring mind with a little bit of excitement and really crazy mind, hmmm..., yup that's it")
+                elif 'gender' in query:
+                    speak("I don't have a gender; I'm an AI-powered virtual assistant created by Shashank Bakshi. I'm here to assist you with a wide range of tasks limited to this computer, including answering questions, and providing information. I'm here to make your life easier by offering support whenever you need it. How can I help you today?!")
+                elif "what are you" in query:
+                    speak("Hello! I'm Cynthia version 1.0, an AI-powered virtual assistant created by Shashank Bakshi. My role is to assist you with a wide range of tasks limited to this computer, including answering questions, and providing information. I'm here to make your life easier by offering support whenever you need it. How can I help you today?")
+                elif "name" in query:
+                    speak("Hello! I'm Cynthia version 1.0, an AI-powered virtual assistant created by Shashank Bakshi. My role is to assist you with a wide range of tasks limited to this computer, including answering questions, and providing information. I'm here to make your life easier by offering support whenever you need it. How can I help you today?")
+                elif 'what are you doing' in query:
+                    speak("Nothing, I am as always here to assist you, any help needed?")
+                elif 'sup'in query:
+                    speak("Nothing, I am as always here to assist you, any help needed?")
+                elif "what's up" in query:
+                    speak("Nothing, I am as always here to assist you, any help needed?")
+                elif 'i am sad' in query:
+                    speak("I am sorry to hear you are feeling sad, please try to talk to a friend of family member who can help you and might make you feel a lit bit better")
+                elif 'i am tired' in query:
+                    speak("its ok to feel tired sometimes, as life and things revolving around it can get tough and you can be burn't out. Well, the best advice I can give you is spend time in nature or with close friends or relatives who can make you feel better. But, if it is for too long you can seek some medical help if required, I can help you just say medical..")
+                elif "medical" in query:
+                    web = "https://www.google.com/search?q=tiredness"
+                    webbrowser.open(web)
+                    speak("Here's what I found, hope this may help you")
                 elif "joke" in query:
                     joke = pyjokes.get_joke()
                     speak(joke)
